@@ -1,16 +1,34 @@
 "use client"
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 
 const Login = () => {
+
+  const router = useRouter()
 
     const [loginData, setLoginData] = useState({
         email: "",
         password: "",
     })
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        console.log(loginData);
+        try {
+          const res = await axios.post("http://localhost:3000/api/users/login", loginData);
+          console.log(res.data);
+          if(res.data.status === 201) {
+            toast.success(res.data.message, {position: "top-center"});
+            router.push("/addTask")
+          }
+          if(res.data.status ===400){
+            toast.error(res.data.message, {position: "top-center"});
+          }
+        } catch (error) {
+          console.log(error);
+          toast.error("Login failed", {position: "top-center"})
+        }
     }
 
   return (

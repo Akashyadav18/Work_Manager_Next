@@ -1,7 +1,9 @@
+import Logout from '@/app/logout/page'
 import Link from 'next/link'
 import React from 'react'
 
-const Navbar = () => {
+const Navbar = (request) => {
+
   return (
     <div className='h-16 px-10 border-b-2 border-gray-500 flex justify-between items-center'>
       <div>
@@ -14,8 +16,11 @@ const Navbar = () => {
       </div>
       <div className='flex gap-10 text-md font-semibold'>
         <Link href="/signup" className="">SignUp</Link>
-        <Link href="/login" className="">Login</Link>
-        <Link href="#" className="">Logout</Link>
+       
+          <Link href="/login" className="">Login</Link>
+       
+          <Logout/>
+        
       </div>
     </div>
   )

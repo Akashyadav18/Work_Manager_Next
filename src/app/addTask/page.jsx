@@ -1,6 +1,7 @@
 "use client";
 
 import axios from 'axios';
+import { NextResponse } from 'next/server';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 
@@ -11,23 +12,23 @@ const addTask = () => {
         title: "",
         content: "",
         status: "none",
-        userId: "653a82a0971f4945f9009b68",
+        userId: "",
     })
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3000/api/tasks", task)
-        .then((res) => {
-            console.log(res);
-            toast.success("Task Added successfully", {id: "1"}, {position: "top-center"})
-        })
-        .catch((err) => {
-            console.log(err);
-            toast.error("Error in adding task", {id: "1"}, {position: "top-center"});
-        })
-        .finally(() => {
-            setTask({title: "", content: "", status: ""})
-        })
+        try {
+            const res = await axios.post("http://localhost:3000/api/tasks", task);
+            console.log(res.data);
+            if(res.data.status === 201){
+                toast.success(res.data.message, {position: "top-center"})
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error("Task not created", {position: "top-center"})
+        } finally {
+            setTask({title: "", content: "", status: "", })
+        }
     }
 
     return (
