@@ -12,7 +12,8 @@ const Navbar = (request) => {
       <div className='flex gap-20 text-md font-semibold'>
         <Link href="/" className="">Home</Link>
         <Link href="/addTask" className="">Add Task</Link>
-        <Link href="/showTasks" className="">Tasks</Link>
+        <Link href="/userTask" className="">Task</Link> 
+        <Link href="/allTasks" className="">All Tasks</Link> 
       </div>
       <div className='flex gap-10 text-md font-semibold'>
         <Link href="/signup" className="">SignUp</Link>

@@ -11,7 +11,7 @@ const addTask = () => {
     const [task, setTask] = useState({
         title: "",
         content: "",
-        status: "none",
+        status: "",
         userId: "",
     })
 
@@ -40,10 +40,10 @@ const addTask = () => {
                     <textarea onChange={(e) => setTask({...task, content: e.target.value})} value={task.content} name="task_content" required type="text" className='flex p-2 m-5 ring-1 ring-gray-300 w-[500px] h-[150px]' placeholder='Content' />
                     <select onChange={(e) => setTask({...task, status: e.target.value})} value={task.status}  name='task_status' required className='flex p-2 m-5 ring-1 ring-gray-300 w-[500px]'>
                         <option value="none">---Select Status---</option>
-                        <option value="Just Added">Just Added</option>
-                        <option value="Started">Started</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
+                        <option value="just added">Just Added</option>
+                        <option value="started">Started</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
                     </select>
                     <div className='flex justify-center items-center mr-32'>
                         <button onClick={submitForm} type='text' className='p-2 bg-indigo-500 text-white text-xl hover:ring-2 ring-violet-600 m-4 rounded-md'>Submit</button>

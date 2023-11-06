@@ -17,12 +17,12 @@ export async function POST(req) {
 
     const token = req.cookies.get("token") ?.value || '' ;
     const data = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
-    console.log(data._id);
+    
     try {
         const tasks = new Task({
             title, 
             content,
-            userId: data._id,
+            userId: data.id,
         })
         const createdTask = await tasks.save();
         return NextResponse.json(createdTask, {success: true, status: 201});

@@ -5,11 +5,10 @@ import { NextResponse } from "next/server";
 export async function GET(req, {params}){
     const {userId} = params;
     try {
-        const users = await User.findById(userId);
         const tasks = await Task.find({
             userId: userId
         })
-        return NextResponse.json(tasks, users, {status:200, success:true})
+        return NextResponse.json(tasks, {status:200, success:true})
     } catch (error) {
         console.log(error);
         return NextResponse.json({message: "Failed to get users tasks", status: 500, success:false});
