@@ -32,7 +32,7 @@ const addTask = () => {
     }
 
     return (
-        <div className='h-[calc(100vh-8rem)] grid grid-cols-12 justify-center items-center'>
+        <div className='h-[calc(100vh-8rem)] grid grid-cols-12 justify-center items-center w-[100%] mx-auto'>
             <div className='col-span-6 col-start-5'>
                 <h1 className='text-xl font-semibold m-10 pr-40 text-center'>Add Task</h1>
                 <form className=''>
