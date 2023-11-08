@@ -8,7 +8,6 @@ import React, { useContext } from 'react'
 const Navbar = () => {
 
   const context = useContext(UserContext);
-  console.log(context.user);
 
   return (
     <div className='h-16 px-10 border-b-2 border-gray-500 flex justify-between items-center'>
@@ -23,13 +22,13 @@ const Navbar = () => {
           <Link href="/allTasks" className="">All Tasks</Link>
         </div>
     
-      {context.user &&
+      
         <div className='flex gap-10 text-md font-semibold'>
-          <h1>Hii {context.user.name}</h1>
+          {context.user ? <h1>Hii {context.user.name}</h1> : "No User"}
           <Link href="/login" className="">Login</Link>
           <Logout />
         </div>
-      }
+      
       
     </div>
   )

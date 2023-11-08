@@ -13,7 +13,7 @@ export async function GET() {
 }
 
 export async function POST(req) {
-    const {title, content, userId} = await req.json();
+    const {title, content, userId, status} = await req.json();
 
     const token = req.cookies.get("token") ?.value || '' ;
     const data = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
@@ -23,6 +23,7 @@ export async function POST(req) {
             title, 
             content,
             userId: data.id,
+            status
         })
         const createdTask = await tasks.save();
         return NextResponse.json(createdTask, {success: true, status: 201});

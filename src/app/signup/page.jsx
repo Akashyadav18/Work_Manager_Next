@@ -1,6 +1,7 @@
 "use client"
 
 import axios from 'axios'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
@@ -39,12 +40,16 @@ const SignUp = () => {
 
   return (
     <div className='h-[calc(100vh-8rem)] flex flex-col justify-center items-center'>
-      <h1 className='text-xl font-semibold m-10 text-center'>Sign Up</h1>
+      <h1 className='text-xl font-semibold  text-center'>Sign Up</h1>
         <input onChange={(e) => setData({...data, name: e.target.value})} value={data.name} required type='text' className='flex p-2 m-3 ring-1 ring-gray-300 w-[500px]' placeholder="Name"/>
         <input onChange={(e) => setData({...data, email: e.target.value})} value={data.email} required type='text' className='flex p-2 m-3 ring-1 ring-gray-300 w-[500px]' placeholder="Email"/>
         <input onChange={(e) => setData({...data, password: e.target.value})} value={data.password} required type='password' className='flex p-2 m-3 ring-1 ring-gray-300 w-[500px]' placeholder="Password"/>
         <textarea onChange={(e) => setData({...data, about: e.target.value})} value={data.about} required rows={5} cols={10} type='text' className='flex p-2 m-3 ring-1 ring-gray-300 w-[500px]' placeholder="About"/>
         <button onClick={submitSignup} type='submit' className='p-2 m-5 bg-green-600 ring-2 text-white text-xl font-semibold hover:ring-green-900 rounded-md'>Sign up</button>
+        <div className='flex gap-10 text-lg'>
+        <p>Already have account</p>
+        <Link href="/login">Login</Link>
+        </div>
     </div>
   )
 }
