@@ -23,7 +23,7 @@ const addTask = () => {
             console.log(res.data);
             if(res.data.status === 201){
                 toast.success("Task added successfully..", {position: "top-center"});
-                router.push("/userTask")
+                router.push("/allTask")
             }
         } catch (error) {
             console.log(error);
