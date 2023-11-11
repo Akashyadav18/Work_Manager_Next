@@ -30,9 +30,10 @@ export async function PUT (req, {params}){
 
 export async function DELETE (req, {params}) {
     const {taskId} = params;
+    const id = taskId;
     try {
         await Task.deleteOne({
-            _id: taskId,
+            _id: id,
         })
         return NextResponse.json({message: "Task deleted",success: true, status: 200});
     } catch (error) {
