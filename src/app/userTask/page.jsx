@@ -44,10 +44,6 @@ const UserTask = () => {
     }
   }
 
-  const handleEdit = () => {
-
-  }
-
   console.log(task);
 
   return (
@@ -59,7 +55,7 @@ const UserTask = () => {
               <div className='p-3 flex justify-between items-center text-xl font-semibold bg-slate-200 uppercase'>
                 <h1 className='text-center'>{item.title}</h1>
                 <div className='flex gap-4'>
-                <CiEdit color={"blue"} size={25} onClick={handleEdit} className='cursor-pointer'/>
+                
                 <MdDelete color={"red"} size={25} onClick={() => handleDelete(item._id)} className='cursor-pointer'/>
                 </div>
               </div>
