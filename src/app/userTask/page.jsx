@@ -22,6 +22,7 @@ const UserTask = () => {
       try {
         const { data } = await axios.get(`http://localhost:3000/api/users/${userId}/tasks`)
         setTask(data)
+        router.refresh();
         setLoading(false)
       }
       catch (error) {

@@ -18,13 +18,13 @@ const Navbar = () => {
         <div className='flex gap-20 text-md font-semibold'>
           <Link href="/" className="">Home</Link>
           <Link href="/addTask" className="">Add Task</Link>
-          <Link href="/userTask" className="">Task</Link>
+          {/* <Link href="/userTask" className="">Task</Link> */}
           <Link href="/allTasks" className="">All Tasks</Link>
         </div>
     
       
         <div className='flex gap-10 text-md font-semibold'>
-          {context.user ? <h1>Hii {context.user.name}</h1> : "No User"}
+          {context.user ? <h1>Hii {context.user.name}</h1> : null}
           <Link href="/login" className="">Login</Link>
           <Logout />
         </div>
