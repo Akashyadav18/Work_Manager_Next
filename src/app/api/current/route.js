@@ -6,7 +6,7 @@ export async function getServerSideProps(request) {
     try {
         const token = request.cookies.get("token")?.value;
         if (!token) {
-            return { props: {} };
+            return NextResponse.json({message: "User is not logged in"});
         }
         const data = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
         const user = await User.findById(data._id).select("-password");
